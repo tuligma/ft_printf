@@ -6,42 +6,42 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:54:51 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/02 04:40:48 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/13 03:58:10 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	process_integer(va_list ap)
+int	process_integer_m(va_list ap)
 {
-	return (process_decimal(ap));
+	return (process_decimal_m(ap));
 }
 
-int	process_unsigned_int(va_list ap)
+int	process_unsigned_int_m(va_list ap)
 {
 	int	num;
 
 	num = va_arg(ap, int);
-	return (ft_putnbr_unsigned(num));
+	return (ft_putnbr_unsigned_m(num));
 }
 
-int	process_hexadecimal_low(va_list ap)
+int	process_hexadecimal_low_m(va_list ap)
 {
 	unsigned int	num;
 
 	num = va_arg(ap, unsigned int);
-	return (ft_hex(num, 'a'));
+	return (ft_hex_m(num, 'a'));
 }
 
-int	process_hexadecimal_up(va_list ap)
+int	process_hexadecimal_up_m(va_list ap)
 {
 	unsigned int	num;
 
 	num = va_arg(ap, unsigned int);
-	return (ft_hex(num, 'A'));
+	return (ft_hex_m(num, 'A'));
 }
 
-int	process_percent(va_list ap)
+int	process_percent_m(va_list ap)
 {
 	(void)ap;
 	return (write(1, "%", 1));

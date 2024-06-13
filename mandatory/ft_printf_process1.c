@@ -6,13 +6,13 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:52:38 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/02 04:40:27 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/13 04:08:22 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	process_char(va_list ap)
+int	process_char_m(va_list ap)
 {
 	char	c;
 
@@ -20,7 +20,7 @@ int	process_char(va_list ap)
 	return (write(1, &c, 1));
 }
 
-int	process_string(va_list ap)
+int	process_string_m(va_list ap)
 {
 	char	*str;
 	int		x;
@@ -36,7 +36,7 @@ int	process_string(va_list ap)
 	return (count);
 }
 
-int	process_pointer(va_list ap)
+int	process_pointer_m(va_list ap)
 {
 	unsigned long	addr;
 	int				count;
@@ -45,14 +45,14 @@ int	process_pointer(va_list ap)
 	if (addr == 0)
 		return (write(1, "(nil)", 5));
 	count = write(1, "0x", 2);
-	count += ft_hex(addr, 'a');
+	count += ft_hex_m(addr, 'a');
 	return (count);
 }
 
-int	process_decimal(va_list ap)
+int	process_decimal_m(va_list ap)
 {
 	int	num;
 
 	num = va_arg(ap, int);
-	return (ft_putnbr(num));
+	return (ft_putnbr_m(num));
 }

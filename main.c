@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ft_printf.h"
+#include "includes/ft_printf_bonus.h"
 #include <limits.h>
 
 int	main(void)
@@ -16,10 +16,10 @@ int	main(void)
     // printf("count = %d\n\n", count);
 
     // printf("String:\n");
-    // count = ft_printf("ft_printf --> [%s]\n", str);
+    // count = ft_printf("ft_printf --> [%3.6s]\n", NULL);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%s]\n", str);
+    // count = printf("   printf --> [%3.6s]\n", NULL);
     // printf("count = %d\n\n", count);
 
     // printf("Pointer:\n");
@@ -37,18 +37,18 @@ int	main(void)
     // printf("count = %d\n\n", count);
 
     // printf("Integer:\n");
-    // count = ft_printf("ft_printf --> [%i]\n", -12345);
+    // count = ft_printf("ft_printf --> [%-5i]\n", 0);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%i]\n", -12345);
+    // count = printf("   printf --> [%-5i]\n", 0);
     //  printf("count = %d\n\n", count);
 
-    // printf("Unsigned:\n");
-    // count = ft_printf("ft_printf --> [%u]\n", 12345);
-    // printf("count = %d\n", count);
-    // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%u]\n", 12345);
-    //  printf("count = %d\n\n", count);
+    printf("Unsigned:\n");
+    count = ft_printf("ft_printf --> [%-5.0u]\n", 0);
+    printf("count = %d\n", count);
+    ft_printf("------------------------\n");
+    count = printf("   printf --> [%-5.0u]\n", 0);
+     printf("count = %d\n\n", count);
 
     // printf("Lowercase hex:\n");
     // count = ft_printf("ft_printf --> [%x]\n", 255);
@@ -85,13 +85,13 @@ int	main(void)
     // count = printf("   printf --> [%p] [%p]\n", (void *)ULONG_MAX, (void *)(-ULONG_MAX));
     // printf("count = %d\n\n", count);
 
-    printf("\n");
-    printf("Char:\n");
-    count = ft_printf("%  d", -1);
-    printf("count = %d\n", count);
-    ft_printf("------------------------\n");
-    count =printf("%  d", -1);
-    printf("count = %d\n\n", count);
+    // printf("\n");
+    // printf("Char:\n");
+    // count = ft_printf("%  d", -1);
+    // printf("count = %d\n", count);
+    // ft_printf("------------------------\n");
+    // count =printf("%  d", -1);
+    // printf("count = %d\n\n", count);
 
 
 	return (0);

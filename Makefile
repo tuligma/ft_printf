@@ -6,13 +6,14 @@
 #    By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/30 21:58:13 by npentini          #+#    #+#              #
-#    Updated: 2024/05/30 22:03:00 by npentini         ###   ########.fr        #
+#    Updated: 2024/06/10 01:02:19 by npentini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS = ft_printf.c ft_printf_process1.c ft_printf_process2.c ft_printf_utils.c
-INCS = .
+SRCS = mandatory/ft_printf.c mandatory/ft_printf_process1.c mandatory/ft_printf_process2.c mandatory/ft_printf_utils.c
+B_SRCS = bonus/ft_printf_bonus.c bonus/ft_printf_process1_bonus.c bonus/ft_printf_process2_bonus.c bonus/ft_printf_utils_bonus.c bonus/ft_printf_flag_utils_bonus.c bonus/ft_printf_print_process1_bonus.c bonus/ft_printf_print_process2_bonus.c
+INCS = includes/
 COMP = cc -c
 CFLAGS = -Wall -Wextra -Werror
 DELETE = rm -f
@@ -24,10 +25,14 @@ B_OBJS = $(B_SRCS:%.c=%.o)
 all: $(NAME)
 
 %.o: %.c
-	$(COMP) $(CFLAGS) -I $(INCS) -o $@ $<
+	$(COMP) $(CFLAGS) -I $(INCS) -o $@ $< -g
 
 $(NAME): $(OBJS)
 	$(LIB_CREATE) $(NAME) $(OBJS)
+	$(RANLIB) $(NAME)
+
+bonus: $(OBJS) $(B_OBJS)
+	$(LIB_CREATE) $(NAME) $(B_OBJS) $(OBJS)
 	$(RANLIB) $(NAME)
 
 clean:

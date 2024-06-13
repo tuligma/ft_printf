@@ -6,28 +6,28 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 23:14:57 by npentini          #+#    #+#             */
-/*   Updated: 2024/05/30 22:09:38 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/13 04:50:38 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	format_processor(va_list ap, char spec)
+int	format_processor_m(va_list ap, char spec)
 {
 	int		(*process[9])(va_list ap);
 	char	*str;
 	int		x;
 	int		count;
 
-	process[0] = process_char;
-	process[1] = process_string;
-	process[2] = process_pointer;
-	process[3] = process_decimal;
-	process[4] = process_integer;
-	process[5] = process_unsigned_int;
-	process[6] = process_hexadecimal_low;
-	process[7] = process_hexadecimal_up;
-	process[8] = process_percent;
+	process[0] = process_char_m;
+	process[1] = process_string_m;
+	process[2] = process_pointer_m;
+	process[3] = process_decimal_m;
+	process[4] = process_integer_m;
+	process[5] = process_unsigned_int_m;
+	process[6] = process_hexadecimal_low_m;
+	process[7] = process_hexadecimal_up_m;
+	process[8] = process_percent_m;
 	str = "cspdiuxX%";
 	count = 0;
 	x = 0;
@@ -52,7 +52,7 @@ int	ft_printf(const char *args, ...)
 	while (args[++i] != '\0')
 	{
 		if (args[i] == '%')
-			x += format_processor(ap, args[++i]);
+			x += format_processor_m(ap, args[++i]);
 		else
 			x += write(1, &args[i], 1);
 	}
