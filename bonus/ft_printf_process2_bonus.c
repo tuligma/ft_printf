@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:54:51 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/13 04:10:06 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/19 04:35:40 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	process_unsigned_int_b(va_list ap, t_flag *flags)
 int	process_hexadecimal_low_b(va_list ap, t_flag *flags)
 {
 	unsigned int	num;
-	unsigned int	o_len;
+	int				o_len;
 
-	num = va_arg(ap, unsigned int);
+	num = va_arg(ap, unsigned long long);
 	o_len = ft_hex_b(num, 'a', 1, 0);
 	if (num == 0 && flags->precision == 0)
 		o_len = 0;
@@ -50,9 +50,9 @@ int	process_hexadecimal_low_b(va_list ap, t_flag *flags)
 int	process_hexadecimal_up_b(va_list ap, t_flag *flags)
 {
 	unsigned int	num;
-	unsigned int	o_len;
+	int				o_len;
 
-	num = va_arg(ap, unsigned int);
+	num = va_arg(ap, unsigned long long);
 	o_len = ft_hex_b(num, 'A', 1, 0);
 	if (num == 0 && flags->precision == 0)
 		o_len = 0;

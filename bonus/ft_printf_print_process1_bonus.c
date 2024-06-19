@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:29:16 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/13 04:42:15 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/19 04:20:36 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ int	print_string_ext_b(t_flag *flags, char *str, int len, int print_null)
 
 	count = 0;
 	null_len = 6;
-	padding = flags->width - len;
+	if (flags->width > 0 && print_null == 1 && flags->precision < null_len)
+		padding = flags->width;
+	else
+		padding = flags->width - len;
 	while (flags->f_minus == 0 && padding-- > 0)
-		count += write(1, " ", 1);
-	while (print_null == 1 && flags->precision < null_len && len-- > 0)
 		count += write(1, " ", 1);
 	if (print_null == 1 && flags->precision >= null_len)
 		count += write(1, str, null_len);
@@ -41,7 +42,7 @@ int	print_string_b(t_flag *flags, char *str, int len, int print_null)
 
 	count = 0;
 	null_len = 6;
-	if (flags->width > len)
+	if (flags->width > len || (flags->width > 0 && print_null == 1))
 		count += print_string_ext_b(flags, str, len, print_null);
 	else
 	{
@@ -85,20 +86,13 @@ int	print_decimal_b(t_flag *flags, int num, int len, int o_len)
 {
 	int	count;
 	int	padding;
+	int	final_num;
 
-	count = 0;
 	padding = 0;
-	count += print_decimal_ext1_b(flags, &num, len, &padding);
+	final_num = num;
+	count = print_decimal_ext1_b(flags, &final_num, len, &padding);
 	count += print_decimal_ext2_b(flags, num, &padding);
-	while (flags->f_minus == 0 && padding-- > 0)
-	{
-		if (flags->f_zero == 1 && flags->precision == -1)
-			count += write(1, "0", 1);
-		else
-			count += write(1, " ", 1);
-	}
-	if (num < 0)
-		count += write(1, "-", 1);
+	count += print_decimal_ext3_b(flags, num, final_num, &padding);
 	while (flags->precision-- > o_len)
 		count += write(1, "0", 1);
 	if (o_len > 0)

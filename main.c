@@ -16,10 +16,10 @@ int	main(void)
     // printf("count = %d\n\n", count);
 
     // printf("String:\n");
-    // count = ft_printf("ft_printf --> [%3.6s]\n", NULL);
+    // count = ft_printf("ft_printf --> [42%2.5s42]\n", str);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%3.6s]\n", NULL);
+    // count = printf("   printf --> [42%2.5s42]\n", str);
     // printf("count = %d\n\n", count);
 
     // printf("Pointer:\n");
@@ -30,32 +30,32 @@ int	main(void)
     // printf("count = %d\n\n", count);
 
     // printf("Decimal:\n");
-    // count = ft_printf("ft_printf --> [%d]\n", 12345);
+    // count = ft_printf("ft_printf --> [%+018d]\n", -533848891);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%d]\n", 12345);
+    // count = printf("   printf --> [%+018d]\n", -533848891);
     // printf("count = %d\n\n", count);
 
     // printf("Integer:\n");
-    // count = ft_printf("ft_printf --> [%-5i]\n", 0);
+    // count = ft_printf("ft_printf --> [%34.32x]\n", 0);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
     // count = printf("   printf --> [%-5i]\n", 0);
     //  printf("count = %d\n\n", count);
 
-    printf("Unsigned:\n");
-    count = ft_printf("ft_printf --> [%-5.0u]\n", 0);
-    printf("count = %d\n", count);
-    ft_printf("------------------------\n");
-    count = printf("   printf --> [%-5.0u]\n", 0);
-     printf("count = %d\n\n", count);
-
-    // printf("Lowercase hex:\n");
-    // count = ft_printf("ft_printf --> [%x]\n", 255);
+    // printf("Unsigned:\n");
+    // count = ft_printf("ft_printf --> [%-5.0u]\n", 0);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count = printf("   printf --> [%x]\n", 255);
-    // printf("count = %d\n\n", count);
+    // count = printf("   printf --> [%-5.0u]\n", 0);
+    //  printf("count = %d\n\n", count);
+
+    printf("Lowercase hex:\n");
+    count = ft_printf("ft_printf --> [%x]\n", 94729282577984);
+    printf("count = %d\n", count);
+    ft_printf("------------------------\n");
+    count = printf("   printf --> [%x]\n", 94729282577984);
+    printf("count = %d\n\n", count);
 
     // printf("Uppercase hex:\n");
     // count = ft_printf("ft_printf --> [%X]\n", 255);
@@ -90,7 +90,7 @@ int	main(void)
     // count = ft_printf("%  d", -1);
     // printf("count = %d\n", count);
     // ft_printf("------------------------\n");
-    // count =printf("%  d", -1);
+    // count = printf("%#34.32x", 94729282577984);
     // printf("count = %d\n\n", count);
 
 

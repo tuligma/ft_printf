@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 23:15:13 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/13 04:40:37 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/19 04:21:33 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,16 @@ int		print_string_ext_b(t_flag *flags, char *str, int len, int print_null);
 int		print_pointer_b(t_flag *flags, unsigned long addr, int len);
 int		print_decimal_ext1_b(t_flag *flags, int *num, int len, int *padding);
 int		print_decimal_ext2_b(t_flag *flags, int num, int *padding);
+int		print_decimal_ext3_b(t_flag *flags, int num,
+			int final_num, int *padding);
 int		print_decimal_b(t_flag *flags, int num, int len, int o_len);
 int		print_unsigned_int_b(t_flag *flags, unsigned int num,
 			int o_len, int len);
-int		print_hexadecimal_ext_b(t_flag *flags, unsigned int num, char lcase,
-			unsigned int *padding);
-int		print_hexadecimal_low_up_b(t_flag *flags, unsigned int num,
+int		print_hexadecimal_ext1_b(t_flag *flags, unsigned long long num,
+			char lcase, int len);
+int		print_hexadecimal_ext2_b(t_flag *flags, unsigned long long num,
+			char lcase, int *padding);
+int		print_hexadecimal_low_up_b(t_flag *flags, unsigned long long num,
 			char lcase, int o_len);
 int		flag_verifier_b(char c);
 int		specifier_verifier_b(char c);
